@@ -1,5 +1,6 @@
 #include<iostream>
 #include<conio.h>
+//#define SORTING
 using namespace std;
 using std::cin;
 using std::cout;
@@ -10,9 +11,10 @@ void Sort(int arr[], const int n);
 void main()
 {
 	setlocale(LC_ALL, "");
+#ifdef SORTING
 	const int n = 5;
 	int arr[n];
-	FILLRand( arr, n);
+	FILLRand(arr, n);
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
@@ -23,6 +25,29 @@ void main()
 	Print(brr, size);
 	Sort(brr, size);
 	Print(brr, size);
+#endif // SORTING
+	const int n = 5;
+	int arr[n];
+	for (int i = 0; i < n; i++)
+	{
+		arr[i] = rand() % 100;
+	}
+	for (int i = 0; i < n; i++)
+	{
+		cout << arr[i] << " ";
+	}cout << endl;
+	double sum = 0;
+	for (int i = 0; i < n; i++)
+	{		
+		sum += arr[i];
+	}cout << endl; 
+	cout << "Сумма элементов массива :  " << sum << endl;
+	cout << "Среднее-арифметическое массива : " << sum / n << endl;
+	//for (int i = 0; i < n; i++)
+	//{
+	//	
+	//}
+
 }
 void FILLRand(int arr[], const int n)
   {
