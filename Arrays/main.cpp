@@ -1,6 +1,7 @@
 #include<iostream>
 #include<conio.h>
-//#define SORTING
+#define SORTING
+//#define HOME WORK
 using namespace std;
 using std::cin;
 using std::cout;
@@ -26,6 +27,10 @@ void main()
 	Print(arr, n);
 	Sort(arr, n);
 	Print(arr, n);
+	cout << "Сумма элементов массива :  " << Sum(arr, n) << endl;
+	cout << "Минимальное значение массива :  " << Min(arr, n) << endl;
+	cout << "Максимальное значение массива :  " << Max(arr, n) << endl;
+	
 
 	const int size = 8;
 	int brr[8];
@@ -33,30 +38,40 @@ void main()
 	Print(brr, size);
 	Sort(brr, size);
 	Print(brr, size);
+	cout << "Сумма элементов массива :  " << Sum(brr, size) << endl;
+	cout << "Минимальное значение массива :  " << Min(brr, size) << endl;
+	cout << "Максимальное значение массива :  " << Max(brr, size) << endl;
 #endif // SORTING
-	const int n = 10;
+
+#ifdef HOME WORK
+	/*const int n = 10;
 	int arr[n];
 	int tab;
 	FILLRand(arr, n);
 	cout << "Вывод массива :  ";
-	Print(arr, n);	
+	Print(arr, n);
 	cout << "Сумма элементов массива :  " << Sum(arr, n) << endl;
+	cout << "Сумма элементов массива :  " << Sum(brr, n) << endl;
 	cout << "Среднее-арифметическое массива :  " << Sum(arr, n) / n << endl;
-	cout << "Минимальное значение массива :  " << Min(arr, n) << endl;	
-	cout << "Максимальное значение массива :  " << Max(arr,n) << endl;
+	cout << "Минимальное значение массива :  " << Min(arr, n) << endl;
+	cout << "Максимальное значение массива :  " << Max(arr, n) << endl;
 	cout << "Вывод массива в обратном порядке :  ";
 	Rev(arr, n);
 	cout << "Введите количество сдвигов влево :  ";
-	cin >>  tab;
-	ShiftLeft(arr, n,tab);
+	cin >> tab;
+	ShiftLeft(arr, n, tab);
 	cout << "Сдвиг массива влево :  ";
-	Print(arr, n);	
+	Print(arr, n);
 	cout << "Введите количество сдвигов вправо : ";
 	cin >> tab;
-	ShiftRight(arr, n, tab);	
+	ShiftRight(arr, n, tab);
 	cout << "Сдвиг массива вправо : ";
-	Print(arr, n);
+	Print(arr, n);*/
+#endif // HOME WORK
 }
+
+
+
   void FILLRand(int arr[], const int n)
   {
 	for (int i = 0; i < n; i++)
@@ -130,7 +145,7 @@ void main()
 			  arr[j] = arr[j + 1];
 		  }
 		  arr[n - 1] = a;
-	  }
+	  }	  
   }
   void ShiftRight(int arr[], const int n, int tab) 
   {

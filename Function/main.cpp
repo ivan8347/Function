@@ -8,6 +8,7 @@ int Sum(int a, int b);
 int Diff(int a, int b);
 int Prod(int a, int b);
 double Quotient(int a, int b);
+int Sum(int arr[], const int n);
 void main()
 {
 
@@ -21,6 +22,7 @@ void main()
 	cout << a << "-" << b << "=" << Diff(a, b) << endl;
 	cout << a << "*" << b << "=" << Prod(a, b) << endl;
 	cout << a << "/" << b << "=" << Quotient(a, b) << endl;
+	cout 
 }
 	int Sum(int a, int b)
    {
@@ -38,4 +40,12 @@ void main()
 	double Quotient(int a, int b)
 	{
 		return (double) a / b;
+	}
+	int Sum(int arr[], const int n)
+	{
+		int sum = 0;
+		for (int i = 0; i < n; i++)
+		{
+			sum += arr[i];
+		}return sum;
 	}
