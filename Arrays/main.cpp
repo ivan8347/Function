@@ -1,19 +1,22 @@
-#include<iostream>
-#include<conio.h>
+#include"stdafx.h"
+#include"constants.h"
+using namespace std;
+
+
+
 //#define SORTING
 //#define HOME WORK
 
-#define DELIMITER ;
-const int ROWS = 3;
-const int COLS = 4;
-int tab;
-using namespace std;
+
 using std::cin;
 using std::cout;
 using std::endl;
+//#include"FILLRand.h"
+//#include"FILLRand.cpp"
+
 void FILLRand(int arr[], const int n);
 void FILLRand(double arr[], const int n);
-void FILLRand(int arr[ROWS][COLS], const int ROWS, const int COLS);
+void FILLRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int  minRand = 0, int maxRand = 100);
 void FILLRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int  minRand = 0, int maxRand = 100);
 
 void Print(int arr[], const int n);
@@ -140,7 +143,7 @@ void main()
 	Print(arr, n);
 #endif // HOME WORK
 #ifdef DELIMITER
-	cout << "\n\n";	
+	/*cout << "\n\n";	
 	cout << "Вывод двумерного массива : " << "\n" << endl;
 	int i_arr_2[ROWS][COLS] =
 	{
@@ -166,9 +169,9 @@ void main()
 	cin >> tab;
 	ShiftRight(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS); cout << endl;
-	system("PAUSE");
+	system("PAUSE");*/
 
-	/*	cout << "\n";
+		cout << "\n";
 	cout << "Вывод двумерного массива : " << "\n" << endl;
 	double i_arr_1[ROWS][COLS];  
 	FILLRand(i_arr_1, ROWS, COLS); 
@@ -185,50 +188,54 @@ void main()
 	cout << "Введите количество сдвигов влево :  "; cin >> tab;
 	ShiftLeft(i_arr_1, ROWS, COLS);
 	Print(i_arr_1, ROWS, COLS); cout << endl; 
-	*/
+	cout << "Введите количество сдвигов вправо : ";
+	cin >> tab;
+	ShiftRight(i_arr_1, ROWS, COLS);
+	Print(i_arr_1, ROWS, COLS); cout << endl;
+	
 
 
 #endif // DELIMITER
 
 
 }
-  void FILLRand(int arr[], const int n)
+ void FILLRand(int arr[], const int n)
+ {
+for (int i = 0; i < n; i++)
+{
+	arr[i] = rand() % 100;
+}
+ } 
+ void FILLRand(double arr[], const int n)
+ {
+for (int i = 0; i < n; i++)
+{
+	arr[i] = rand() % 10000;arr[i] /= 100;
+}
+ }
+ void FILLRand(int arr[ROWS][COLS], const int ROWS, const int COLS, int  minRand, int maxRand)
+ {
+  for (int i = 0; i < ROWS; i++)
   {
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 100;
-	}
-  } 
-  void FILLRand(double arr[], const int n)
-  {
-	for (int i = 0; i < n; i++)
-	{
-		arr[i] = rand() % 10000;arr[i] /= 100;
-	}
-  }
-  void FILLRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
-  {
-	  for (int i = 0; i < ROWS; i++)
+	  for (int j = 0; j < COLS; j++)
 	  {
-		  for (int j = 0; j < COLS; j++)
-		  {
-			  arr[i][j] = rand();
-		  }
-		  
+		  arr[i][j] = rand()% (maxRand - minRand) + minRand;
 	  }
+	  
   }
-  void FILLRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int  minRand , int maxRand )
+ }
+ void FILLRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int  minRand , int maxRand )
+ {
+  for (int i = 0; i < ROWS; i++)
   {
-	  for (int i = 0; i < ROWS; i++)
+	  for (int j = 0; j < COLS; j++)
 	  {
-		  for (int j = 0; j < COLS; j++)
-		  {
-			  arr[i][j] = rand() % (maxRand - minRand) + minRand;
-		  }
-		  
-		  
+		  arr[i][j] = rand() % (maxRand - minRand) + minRand;
 	  }
+	  
+	  
   }
+ }
   void Print(int arr[], const int n)
   {
 	  for (int i = 0; i < n; i++)
@@ -301,41 +308,58 @@ void main()
   }
   void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
   {
-	  for (int i = 0; i < COLS; i++)
+	  
+	  int iteracions = 0;
+	  int exchanges = 0;
+	  for (int i = 0; i < ROWS; i++)
 	  {
-		  for (int j = 0; j < ROWS  ; j++)
-		  
+		  for (int j = 0; j < COLS; j++)
 		  {
-			  for (int k = 0; k < COLS; k++)
+			  for (int k = i; k < ROWS; k++)
 			  {
-				  if (arr[k][i] < arr[k][j])
+				  for (int l = k == i ? j + 1 : 0; l < COLS; l++)
 				  {
-					  int  buffer = arr[k][i];
-					  arr[k][i] = arr[k][j];
-					  arr[k][j] = buffer;
+					  iteracions++;
+					  if (arr[k][l] < arr[i][j])
+					  {
+						  int  buffer = arr[i][j];
+						  arr[i][j] = arr[k][l];
+						  arr[k][l] = buffer;
+						  exchanges++;
+					  }
 				  }
 			  }
 		  }
 	  }
+	  cout << "Количество итераций : " << iteracions << endl;
+	  cout << "Количество обменов : " << exchanges << endl;
   }
   void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS)
   {
-	  for (int i = 0; i < COLS; i++)
+	  int iteracions = 0;
+	  int exchanges = 0;
+	  for (int i = 0; i < ROWS; i++)
 	  {
-		  for (int j = 0; j < ROWS  ; j++)
-		  
+		  for (int j = 0; j < COLS; j++)
 		  {
-			  for (int k = 0; k < COLS; k++)
+			  for (int k = i; k < ROWS; k++)
 			  {
-				  if (arr[k][i] < arr[k][j])
+				  for (int l = k > i ? 0 : j +1; l < COLS; l++)
 				  {
-					  double  buffer = arr[k][i];
-					  arr[k][i] = arr[k][j];
-					  arr[k][j] = buffer;
+					  iteracions++;
+					  if (arr[k][l] < arr[i][j])
+					  {
+						  double  buffer = arr[i][j];
+						  arr[i][j] = arr[k][l];
+						  arr[k][l] = buffer;
+						  exchanges++;
+					  }
 				  }
 			  }
 		  }
 	  }
+	  cout << "Количество итераций : " << iteracions << endl;
+	  cout << "Количество обменов : " << exchanges << endl;
   } 
   double Sum(int arr[], const int n)
   {
@@ -549,18 +573,12 @@ void main()
  }
   void ShiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS)
   {
-	  for (int k = 0; k < tab; k++)
-	  {
-		  for (int i = 0; i < ROWS; i++)
+	 
+		  /*for (int i = 0; i < ROWS; i++)
 		  {
-			  double a = arr[i][0];
-			  for (int j = 0; j < COLS - 1; j++)
-			  {
-				  arr[i][j] = arr[i][j + 1];
-			  }
-			  arr[i][COLS - 1] = a;
-		  }
-	  }
+			  ShiftLeft(arr[i], COLS, tab);
+		  }*/
+	  ShiftLeft(arr[0], ROWS * COLS, tab);
   }
 
   void ShiftRight(int arr[], const int n, int tab)
@@ -578,34 +596,12 @@ void main()
   }
   void ShiftRight(double arr[], const int n, int tab)
   {
-	 
-	  for (int i = 0; i < tab; i++)
-	  {
-		  int a = arr[n - 1];
-
-		  for (int i = n - 1; i > 0; i--)
-		  {
-			  arr[i] = arr[i - 1];
-		  }
-		  arr[0] = a;
-	  }
+	  ShiftRight(arr, n, n - tab);
   }
   void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS)
   {
-	  
-		for(int k = 0; k < tab; k++)
-		{
-			  for (int i = 0; i < ROWS; i++)
-			  {
-				  int a = arr[i][COLS - 1];
 
-				  for (int j = COLS - 1; j > 0; j--)
-				  {
-					  arr[i][j] = arr[i][j - 1];
-				  }
-				  arr[i][0] = a;
-			  }
-		}
+	  ShiftLeft(arr[0], ROWS*COLS, ROWS * COLS - tab);
 	  
 	  
   }
