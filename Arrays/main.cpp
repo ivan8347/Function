@@ -188,11 +188,8 @@ void main()
 	cout << "¬ведите количество сдвигов влево :  "; cin >> tab;
 	ShiftLeft(i_arr_1, ROWS, COLS);
 	Print(i_arr_1, ROWS, COLS); cout << endl; 
-	cout << "¬ведите количество сдвигов вправо : ";
-	cin >> tab;
-	ShiftRight(i_arr_1, ROWS, COLS);
-	Print(i_arr_1, ROWS, COLS); cout << endl;
-	
+	*/
+
 
 
 #endif // DELIMITER
