@@ -55,16 +55,16 @@ void Rev(T arr[], const int n);
 template<typename T>
 void Rev(T arr[ROWS][COLS], const int ROWS, const int COLS);
 
+template<typename T>
+void ShiftLeft(T arr[], const int n,int tab);
+template<typename T>
+void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS);
 
-void ShiftLeft(int arr[], const int n,int tab);
-void ShiftLeft(double arr[], const int n,int tab);
-void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void ShiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS);
+template<typename T>
+void ShiftRight(T arr[], const int n,int tab);
+template<typename T>
+void ShiftRight(T arr[ROWS][COLS], const int ROWS, const int COLS);
 
-void ShiftRight(int arr[], const int n,int tab);
-void ShiftRight(double arr[], const int n,int tab);
-void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS);
-void ShiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS);
 
 void main()
 {
@@ -146,7 +146,7 @@ void main()
 #endif // HOME WORK
 #ifdef DELIMITER
 	cout << "\n\n";	
-	cout << "Вывод двумерного массива : " << "\n" << endl;
+	//cout << "Вывод двумерного массива : " << "\n" << endl;
 	/*int i_arr_2[ROWS][COLS] =
 	{
 		{ 3, 96, 203,16 },
@@ -190,6 +190,10 @@ void main()
 	cout << "Введите количество сдвигов влево :  "; cin >> tab;
 	ShiftLeft(i_arr_1, ROWS, COLS);
 	Print(i_arr_1, ROWS, COLS); cout << endl; 
+	cout << "Введите количество сдвигов вправо :  "; cin >> tab;
+	ShiftRight(i_arr_1, ROWS, COLS);
+	Print(i_arr_1, ROWS, COLS); cout << endl;
+
 #endif // DELIMITER
 }
 
@@ -227,6 +231,7 @@ void main()
 		  for (int j = 0; j < COLS; j++)
 		  {
 			  arr[i][j] = rand() % (maxRand - minRand) + minRand;
+			  arr[i][j] /= 100;
 		  }
 		  
 		  
@@ -255,6 +260,7 @@ void main()
 	  cout << endl;
   }
   }
+
   template<typename T>
   void Sort(T arr[], const int n) 
   {
@@ -291,6 +297,7 @@ void main()
 		  }
 	  }
   }
+
   template<typename T>  
   T Sum(T arr[], const int n)
   {
@@ -313,6 +320,7 @@ void main()
 		  }
 	  } return sum;
   }
+
   template<typename T> 
   T Avg(T arr[], const int n)
   {
@@ -323,6 +331,7 @@ void main()
   {
 	  return (double)Sum(arr, ROWS, COLS) / (COLS*ROWS);
   }
+
   template<typename T> 
   void Rev(T arr[], const int n) 
   {
@@ -342,6 +351,7 @@ void main()
 		  }cout << endl;
 	  }
   }   
+
   template<typename T> 
   T Min(T arr[], const int n)
   {
@@ -363,6 +373,7 @@ void main()
 		  }
 	  }return min;
   }
+
   template<typename T>   
   T Max(T arr[], const int n) 
   {
@@ -385,128 +396,38 @@ void main()
 	  }return max;
   }
   
-  void ShiftLeft(int arr[], const int n,int tab)
+  template<typename T>
+  void ShiftLeft(T arr[], const int n,int tab)
   {
 	 
 	  for (int i = 0; i < tab; i++)
 	  {
-		  int a = arr[0];
+		  T a = arr[0];
 
-		  for (int j = 1; j < n ; j++)
+		  for (int j = 1; j < n; j++)
 		  {
-			   arr[j - 1] = arr[j];
+			  arr[j - 1] = arr[j];
 		  }
 		  arr[n - 1] = a;
-	  }	  
+	  }
   }
-  void ShiftLeft(double arr[], const int n,  int tab)
+  template <typename T>
+  void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS)
   {
-	 
-	  for (int i = 0; i < tab; i++)
-	  {
-		  double a = arr[0];
-
-		  for (int j = 0; j < n - 1; j++)
-		  {
-			  arr[j] = arr[j + 1];
-		  }
-		  arr[n - 1] = a;
-	  }	  
-
-  }
-  void ShiftLeft(int arr[ROWS][COLS], const int ROWS, const int COLS)
-  {
-  for (int k = 0; k < tab; k++)
-  {
-		  for (int i = 0; i < ROWS; i++)
-		  {
-			  int a = arr[i][0];				
-			  for (int j = 0; j < COLS - 1; j++)
-			  { 				  
-					  arr[i][j] = arr[i][j + 1];			  
-			  }
-			   arr[i][COLS - 1] = a;
-		  }	 
-  }	  
+  
+  
+	  ShiftLeft(arr[0], ROWS * COLS, tab);
+    
  }
-  void ShiftLeft(double arr[ROWS][COLS], const int ROWS, const int COLS)
-  {
-	  for (int k = 0; k < tab; k++)
-	  {
-		  for (int i = 0; i < ROWS; i++)
-		  {
-			  double a = arr[i][0];
-			  for (int j = 0; j < COLS - 1; j++)
-			  {
-				  arr[i][j] = arr[i][j + 1];
-			  }
-			  arr[i][COLS - 1] = a;
-		  }
-	  }
-  }
 
-  void ShiftRight(int arr[], const int n, int tab)
+  template<typename T>
+  void ShiftRight(T arr[], const int n, int tab)
   {  
-	  for (int i = 0; i < tab; i++)
-	  {
-		  int a = arr[n-1];
-
-		  for (int i = n-1 ; i > 0; i--)
-		  {
-			 arr[i]=  arr[i - 1]  ;
-		  }
-		  arr[0] = a;
-	  }
+	  ShiftRight(arr, n, n - tab);
   }
-  void ShiftRight(double arr[], const int n, int tab)
+  template<typename T>
+  void ShiftRight(T arr[ROWS][COLS], const int ROWS, const int COLS)
   {
-	 
-	  for (int i = 0; i < tab; i++)
-	  {
-		  int a = arr[n - 1];
-
-		  for (int i = n - 1; i > 0; i--)
-		  {
-			  arr[i] = arr[i - 1];
-		  }
-		  arr[0] = a;
-	  }
+	  ShiftLeft(arr[0], ROWS * COLS, ROWS * COLS - tab);	  
   }
-  void ShiftRight(int arr[ROWS][COLS], const int ROWS, const int COLS)
-  {
-	  
-		for(int k = 0; k < tab; k++)
-		{
-			  for (int i = 0; i < ROWS; i++)
-			  {
-				  int a = arr[i][COLS - 1];
-
-				  for (int j = COLS - 1; j > 0; j--)
-				  {
-					  arr[i][j] = arr[i][j - 1];
-				  }
-				  arr[i][0] = a;
-			  }
-		}
-	  
-	  
-  }
-  void ShiftRight(double arr[ROWS][COLS], const int ROWS, const int COLS)
-  {
-
-	  for (int k = 0; k < tab; k++)
-	  {
-		  for (int i = 0; i < ROWS; i++)
-		  {
-			  double a = arr[i][COLS - 1];
-
-			  for (int j = COLS - 1; j > 0; j--)
-			  {
-				  arr[i][j] = arr[i][j - 1];
-			  }
-			  arr[i][0] = a;
-		  }
-	  }
-
-
-  }
+  
