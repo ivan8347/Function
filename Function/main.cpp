@@ -22,7 +22,7 @@ void main()
 	cout << a << "-" << b << "=" << Diff(a, b) << endl;
 	cout << a << "*" << b << "=" << Prod(a, b) << endl;
 	cout << a << "/" << b << "=" << Quotient(a, b) << endl;
-	cout 
+	
 }
 	int Sum(int a, int b)
    {
