@@ -87,7 +87,7 @@ void main()
 #endif // HOME WORK
 #ifdef DELIMITER
 
-	//int tab;
+	int tab;
 	cout << "\n\n";	
 	cout << "Вывод двумерного массива : " << "\n" << endl;
 	int i_arr_2[ROWS][COLS] =
@@ -108,34 +108,35 @@ void main()
 	cout << "Вывод массива в обратном порядке :  " << endl; cout << endl;	
 	Rev(i_arr_2, ROWS, COLS);
 	cout << "Введите количество сдвигов влево :  "; cin >> tab;
-	ShiftLeft(i_arr_2, ROWS, COLS);
+	//ShiftLeft(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS); cout << endl;
 	cout << "Введите количество сдвигов вправо : ";
 	cin >> tab;
-	ShiftRight(i_arr_2, ROWS, COLS);
+	//ShiftRight(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS); cout << endl;
 	system("PAUSE");
 
 		cout << "\n";
 	cout << "Вывод двумерного массива : " << "\n" << endl;
-	double i_arr_1[ROWS][COLS];  
-	FILLRand(i_arr_1, ROWS, COLS); 
-	Print(i_arr_1, ROWS, COLS); cout << endl;
+	double d_arr_1[ROWS][COLS];  
+	FILLRand(d_arr_1, ROWS, COLS); 
+	Print(d_arr_1, ROWS, COLS); cout << endl;
 	cout << "Вывод массива по возрастанию :  " << endl; cout << endl;
-	Sort(i_arr_1, ROWS, COLS);
-	Print(i_arr_1, ROWS, COLS); cout << endl;
-	cout << "Сумма элементов массива :  " << Sum(i_arr_1, ROWS, COLS) << endl;
-	cout << "Среднее-арифметическое элементов массива :  " << Avg(i_arr_1, ROWS, COLS) << endl;
-	cout << "Минимальное значение массива :  " << Min(i_arr_1, ROWS, COLS) << endl;
-	cout << "Максимальное значение массива :  " << Max(i_arr_1, ROWS, COLS) << endl;
+	Sort(d_arr_1, ROWS, COLS);
+	Print(d_arr_1, ROWS, COLS); cout << endl;
+	cout << "Сумма элементов массива :  " << Sum(d_arr_1, ROWS, COLS) << endl;
+	cout << "Среднее-арифметическое элементов массива :  " << Avg(d_arr_1, ROWS, COLS) << endl;
+	cout << "Минимальное значение массива :  " << Min(d_arr_1, ROWS, COLS) << endl;
+	cout << "Максимальное значение массива :  " << Max(d_arr_1, ROWS, COLS) << endl;
 	cout << "Вывод массива в обратном порядке :  " << endl; cout << endl;
-	Rev(i_arr_1, ROWS, COLS); cout << endl;
+	Rev(d_arr_1, ROWS, COLS); cout << endl;
 	cout << "Введите количество сдвигов влево :  "; cin >> tab;
-	ShiftLeft(i_arr_1, ROWS, COLS);
-	Print(i_arr_1, ROWS, COLS); cout << endl; 
+	ShiftLeft(d_arr_1, ROWS, COLS, tab);
+	Print(d_arr_1, ROWS, COLS); cout << endl; 
 	cout << "Введите количество сдвигов вправо :  "; cin >> tab;
-	ShiftRight(i_arr_1, ROWS, COLS);
-	Print(i_arr_1, ROWS, COLS); cout << endl;
+	//ShiftRight(i_arr_1, ROWS, COLS);
+	Print(d_arr_1, ROWS, COLS); cout << endl;
+
 
 #endif // DELIMITER
 }

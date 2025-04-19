@@ -34,7 +34,5 @@ void FILLRand(double arr[ROWS][COLS], const int ROWS, const int COLS, int  minRa
 			arr[i][j] = rand() % (maxRand - minRand) + minRand;
 			arr[i][j] /= 100;
 		}
-
-
 	}
 }
