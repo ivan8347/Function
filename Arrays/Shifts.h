@@ -1,8 +1,7 @@
 #pragma once
 #include"constants.h"
 
-template <typename T>
-void ShiftLeft(T arr[], const int n, int tab)
+template <typename T>void ShiftLeft(T arr[], const int n, int tab)
 {
 
 	for (int i = 0; i < tab; i++)
@@ -16,8 +15,7 @@ void ShiftLeft(T arr[], const int n, int tab)
 		arr[n - 1] = buffer;
 	}
 }
-template <typename T>
-void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS,int tab)
+template <typename T>void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS,int tab)
 {
 
 
@@ -25,13 +23,11 @@ void ShiftLeft(T arr[ROWS][COLS], const int ROWS, const int COLS,int tab)
 
 }
 
-template<typename T>
-void ShiftRight(T arr[], const int n, int tab)
+template<typename T>void ShiftRight(T arr[], const int n, int tab)
 {
 	ShiftRight(arr, n, n - tab);
 }
-template<typename T>
-void ShiftRight(T arr[ROWS][COLS], const int ROWS, const int COLS, int tab)
+template<typename T>void ShiftRight(T arr[ROWS][COLS], const int ROWS, const int COLS, int tab)
 {
 	ShiftLeft(arr[0], ROWS * COLS, ROWS * COLS - tab);
 }

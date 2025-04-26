@@ -108,11 +108,11 @@ void main()
 	cout << "Вывод массива в обратном порядке :  " << endl; cout << endl;	
 	Rev(i_arr_2, ROWS, COLS);
 	cout << "Введите количество сдвигов влево :  "; cin >> tab;
-	//ShiftLeft(i_arr_2, ROWS, COLS);
+	ShiftLeft(i_arr_2, ROWS, COLS,tab);
 	Print(i_arr_2, ROWS, COLS); cout << endl;
 	cout << "Введите количество сдвигов вправо : ";
 	cin >> tab;
-	//ShiftRight(i_arr_2, ROWS, COLS);
+	ShiftRight(i_arr_2, ROWS, COLS,tab);
 	Print(i_arr_2, ROWS, COLS); cout << endl;
 	system("PAUSE");
 
@@ -134,7 +134,7 @@ void main()
 	ShiftLeft(d_arr_1, ROWS, COLS, tab);
 	Print(d_arr_1, ROWS, COLS); cout << endl; 
 	cout << "Введите количество сдвигов вправо :  "; cin >> tab;
-	//ShiftRight(i_arr_1, ROWS, COLS);
+	ShiftRight(d_arr_1, ROWS, COLS,tab);
 	Print(d_arr_1, ROWS, COLS); cout << endl;
 
 

@@ -1,28 +1,8 @@
 #pragma once
-#include"Statistics.h"
-#include"constants.h"
-template<typename T>
-T Sum(T arr[], const int n);
-template<typename T>
-T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS);
 
-template<typename T>
-T Avg(T arr[], const int n);
-template<typename T>
-T Avg(T arr[ROWS][COLS], const int ROWS, const int COLS);
 
-template<typename T>
-T Min(T arr[], const int n);
-template<typename T>
-T Min(T arr[ROWS][COLS], const int ROWS, const int COLS);
 
-template<typename T>
-T Max(T arr[], const int n);
-template<typename T>
-T Max(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T>
-T Sum(T arr[], const int n)
+template<typename T>T Sum(T arr[], const int n)
 {
 	T sum = 0;
 	for (int i = 0; i < n; i++)
@@ -31,8 +11,7 @@ T Sum(T arr[], const int n)
 	}
 	return sum;
 }
-template<typename T>
-T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	T sum = 0;
 	for (int i = 0; i < ROWS; i++)
@@ -44,18 +23,15 @@ T Sum(T arr[ROWS][COLS], const int ROWS, const int COLS)
 	} return sum;
 }
 
-template<typename T>
-T Avg(T arr[], const int n)
+template<typename T>T Avg(T arr[], const int n)
 {
 	return (double)Sum(arr, n) / n;
 }
-template<typename T>
-T Avg(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>T Avg(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	return (double)Sum(arr, ROWS, COLS) / (COLS * ROWS);
 }
-template<typename T>
-T Min(T arr[], const int n)
+template<typename T>T Min(T arr[], const int n)
 {
 	T min = arr[0];
 	for (int i = 0; i < n; i++)
@@ -63,8 +39,7 @@ T Min(T arr[], const int n)
 		if (min > arr[i]) min = arr[i];
 	}return min;
 }
-template<typename T>
-T Min(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>T Min(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	T min = arr[0][0];
 	for (int i = 0; i < ROWS; i++)
@@ -76,8 +51,7 @@ T Min(T arr[ROWS][COLS], const int ROWS, const int COLS)
 	}return min;
 }
 
-template<typename T>
-T Max(T arr[], const int n)
+template<typename T>T Max(T arr[], const int n)
 {
 	T max = arr[0];
 	for (int i = 0; i < n; i++)
@@ -85,8 +59,7 @@ T Max(T arr[], const int n)
 		if (max < arr[i]) max = arr[i];
 	}return max;
 }
-template<typename T>
-T Max(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>T Max(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	double max = arr[0][0];
 	for (int i = 0; i < ROWS; i++)

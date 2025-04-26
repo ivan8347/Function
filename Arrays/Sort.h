@@ -1,13 +1,6 @@
 #pragma once
-#include"Sort.h"
-
-template<typename T>
-void Sort(T arr[], const int n);
-template<typename T>
-void Sort(T arr[ROWS][COLS], const int ROWS, const int COLS);
-
-template<typename T>
-void Sort(T arr[], const int n)
+#include"constants.h"
+template<typename T>void Sort(T arr[], const int n)
 {
 	for (int i = 0; i < n; i++)
 	{
@@ -22,8 +15,7 @@ void Sort(T arr[], const int n)
 		}
 	}
 }
-template<typename T>
-void Sort(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>void Sort(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < COLS; i++)
 	{
@@ -43,16 +35,14 @@ void Sort(T arr[ROWS][COLS], const int ROWS, const int COLS)
 	}
 }
 
-template<typename T>
-void Rev(T arr[], const int n)
+template<typename T>void Rev(T arr[], const int n)
 {
 	for (int i = n - 1; i >= 0; i--)
 	{
 		cout << arr[i] << " ";
 	}cout << endl;
 }
-template<typename T>
-void Rev(T arr[ROWS][COLS], const int ROWS, const int COLS)
+template<typename T>void Rev(T arr[ROWS][COLS], const int ROWS, const int COLS)
 {
 	for (int i = 0; i < ROWS; i++)
 	{
