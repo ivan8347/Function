@@ -14,6 +14,7 @@ void Sort(int arr[], const int n)
 			}
 		}
 	}
+	cout << endl;
 }
 void Sort(double arr[], const int n)
 {
@@ -29,6 +30,7 @@ void Sort(double arr[], const int n)
 			}
 		}
 	}
+	cout << endl;
 }
 void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 {
@@ -57,6 +59,7 @@ void Sort(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	}
 	cout << "Количество итераций : " << iteracions << endl;
 	cout << "Количество обменов : " << exchanges << endl;
+	cout << endl;
 }
 void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS)
 {
@@ -81,9 +84,11 @@ void Sort(double arr[ROWS][COLS], const int ROWS, const int COLS)
 				}
 			}
 		}
+		
 	}
 	cout << "Количество итераций : " << iteracions << endl;
 	cout << "Количество обменов : " << exchanges << endl;
+	cout << endl;
 }
 
 void Rev(int arr[], const int n)
@@ -91,7 +96,8 @@ void Rev(int arr[], const int n)
 	for (int i = n - 1; i >= 0; i--)
 	{
 		cout << arr[i] << " ";
-	}cout << endl;
+	}
+	cout << endl;
 }
 void Rev(double arr[], const int n)
 {
