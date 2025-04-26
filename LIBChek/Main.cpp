@@ -14,7 +14,7 @@ void main()
 	cout << "\n";
 	cout << "delimetr" << endl;
 
-	int i_arr_2[ROWS,COLS]; 
+	int i_arr_2[ROWS][COLS]; 
 	FILLRand(i_arr_2, ROWS, COLS);
 	Print(i_arr_2, ROWS, COLS);
 
