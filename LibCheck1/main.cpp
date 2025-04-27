@@ -26,10 +26,10 @@ void main()
 		ShiftLeft(arr, n, tab);
 		cout << "Сдвиг массива влево :  ";
 		Print(arr, n); cout << endl;
-		cout << "Введите количество сдвигов вправо : ";cin >> tab;
-		ShiftRight(arr, n, tab) ;
-		cout << "Сдвиг массива вправо : ";
-		Print(arr, n); cout << endl; //Почему-то не работет
+		//cout << "Введите количество сдвигов вправо : ";cin >> tab;
+		//ShiftRight(arr, n, tab) ;
+		//cout << "Сдвиг массива вправо : ";
+		//Print(arr, n); cout << endl; //Почему-то не работет
 
 
 		cout << "\n";

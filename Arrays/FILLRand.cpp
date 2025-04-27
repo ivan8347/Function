@@ -20,7 +20,7 @@ void FILLRand(int arr[ROWS][COLS], const int ROWS, const int COLS)
 	{
 		for (int j = 0; j < COLS; j++)
 		{
-			arr[i][j] = rand();
+			arr[i][j] = rand()%100;
 		}
 
 	}
