@@ -2,9 +2,9 @@
 #include<FILLRand.h>
 #include<Print.h>
 #include<constants.h>
-#include"Statistics.h"
-#include"Shifts.h"
-#include"Sort.h"
+#include<Statistics.h>
+#include<Shifts.h>
+#include<Sort.h>
 
 using namespace std;
 void main()
