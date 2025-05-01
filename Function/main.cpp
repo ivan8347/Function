@@ -9,6 +9,7 @@ int Diff(int a, int b);
 int Prod(int a, int b);
 double Quotient(int a, int b);
 int Sum(int arr[], const int n);
+
 void main()
 {
 
